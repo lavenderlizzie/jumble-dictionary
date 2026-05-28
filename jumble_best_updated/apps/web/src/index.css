@@ -1,0 +1,390 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=DM+Sans:wght@400;500;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Backgrounds: Vibrant Saturated Pastels & Bright Whites */
+    --background: 330 20% 99%;
+    --foreground: 240 10% 10%;
+    
+    /* Surfaces */
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 10%;
+    
+    /* Semantic Colors: Hot Pink, Electric Green, Vibrant Accents */
+    /* Hot Pink */
+    --primary: 330 100% 60%;
+    --primary-foreground: 0 0% 100%;
+    
+    /* Electric Green */
+    --secondary: 140 80% 50%;
+    --secondary-foreground: 240 10% 10%;
+    
+    /* Bright Accent / Cyan */
+    --accent: 190 100% 50%;
+    --accent-foreground: 240 10% 10%;
+    
+    /* Vibrant Red */
+    --destructive: 350 100% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Muted (Pastel Tints) & Borders */
+    --muted: 140 30% 92%;
+    --muted-foreground: 240 5% 45%;
+    --border: 330 30% 85%;
+    --input: 330 20% 95%;
+    --ring: 330 100% 60%;
+    
+    --radius: 0.75rem;
+    
+    /* Sidebar */
+    --sidebar-background: 330 20% 99%;
+    --sidebar-foreground: 240 10% 10%;
+    --sidebar-primary: 330 100% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 30% 92%;
+    --sidebar-accent-foreground: 240 10% 10%;
+    --sidebar-border: 330 30% 85%;
+    --sidebar-ring: 330 100% 60%;
+
+    /* Specific Tokens */
+    --btn-height-mobile: 3.5rem;
+    --btn-height-desktop: 4rem;
+    --question-spacing-y: 2rem;
+    --question-padding: 1.5rem;
+
+    /* Custom Button State Tokens */
+    --btn-pink-default: 330 100% 60%;
+    --btn-pink-hover: 330 100% 55%;
+    --btn-pink-active: 330 100% 50%;
+
+    --btn-green-default: 140 80% 50%;
+    --btn-green-hover: 140 80% 45%;
+    --btn-green-active: 140 80% 40%;
+
+    /* Kalamity Kate Speech Bubble Tokens */
+    --speech-bubble-bg: 330 20% 98%;
+    --speech-bubble-text: 330 80% 15%;
+  }
+
+  .dark {
+    /* Deep dark backgrounds to make the neon colors pop */
+    --background: 240 10% 5%;
+    --foreground: 0 0% 98%;
+    
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 98%;
+    
+    /* Bright Neons */
+    --primary: 330 100% 65%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 140 80% 50%;
+    --secondary-foreground: 240 10% 10%;
+    
+    --accent: 190 100% 50%;
+    --accent-foreground: 240 10% 10%;
+    
+    --destructive: 350 100% 65%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --muted: 140 20% 15%;
+    --muted-foreground: 240 10% 70%;
+    --border: 330 30% 20%;
+    --input: 330 30% 15%;
+    --ring: 330 100% 65%;
+    
+    --sidebar-background: 240 10% 5%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 330 100% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 140 20% 15%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 330 30% 20%;
+    --sidebar-ring: 330 100% 65%;
+
+    /* Custom Button State Tokens (Dark Mode) */
+    --btn-pink-default: 330 100% 65%;
+    --btn-pink-hover: 330 100% 70%;
+    --btn-pink-active: 330 100% 75%;
+
+    --btn-green-default: 140 80% 50%;
+    --btn-green-hover: 140 80% 55%;
+    --btn-green-active: 140 80% 60%;
+
+    /* Kalamity Kate Speech Bubble Tokens */
+    --speech-bubble-bg: 330 40% 15%;
+    --speech-bubble-text: 330 20% 95%;
+  }
+
+  * {
+    border-color: hsl(var(--border));
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: clip;
+    line-height: 1.625;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+
+@layer components {
+  .brand-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+  }
+
+  .hero-heading {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+
+  .body-text {
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.625;
+  }
+
+  /* --- Anagram Solver Specifics --- */
+  .reveal-word {
+    font-size: clamp(3rem, 10vw, 6.5rem);
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    color: hsl(var(--primary));
+    text-shadow: 0 8px 32px hsl(var(--primary) / 0.35);
+    font-family: 'DM Sans', sans-serif;
+    word-break: break-word;
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(300 100% 60%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bonus-word-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.375rem 0.875rem;
+    background-color: hsl(var(--secondary) / 0.15);
+    color: hsl(var(--secondary-foreground));
+    border: 1px solid hsl(var(--secondary) / 0.25);
+    border-radius: var(--radius);
+    font-size: 0.9375rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .bonus-word-badge:hover {
+    background-color: hsl(var(--secondary) / 0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px hsl(var(--secondary) / 0.15);
+  }
+
+  .feedback-section {
+    background: linear-gradient(to bottom right, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.1));
+    border-top: 1px solid hsl(var(--border));
+  }
+
+  .feedback-label {
+    font-weight: 600;
+    font-size: 0.875rem;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+
+  /* Random Question Typography & Layout */
+  .question-display-text {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 700;
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+  }
+
+  .question-container {
+    padding: var(--question-padding);
+    margin-top: var(--question-spacing-y);
+  }
+
+  .btn-generate {
+    min-height: var(--btn-height-mobile);
+  }
+
+  /* Vibrant Custom Buttons */
+  .btn-vibrant-pink {
+    background-color: hsl(var(--btn-pink-default));
+    color: hsl(0 0% 100%);
+    font-weight: 700;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-vibrant-pink:hover {
+    background-color: hsl(var(--btn-pink-hover));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px hsl(var(--btn-pink-default) / 0.3);
+  }
+  
+  .btn-vibrant-pink:active {
+    background-color: hsl(var(--btn-pink-active));
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+  
+  .btn-vibrant-pink:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    transform: none;
+    box-shadow: none;
+  }
+
+  .btn-vibrant-green {
+    background-color: hsl(var(--btn-green-default));
+    color: hsl(240 10% 10%); /* Dark text for contrast */
+    font-weight: 700;
+    border-radius: var(--radius);
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn-vibrant-green:hover {
+    background-color: hsl(var(--btn-green-hover));
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px hsl(var(--btn-green-default) / 0.3);
+  }
+  
+  .btn-vibrant-green:active {
+    background-color: hsl(var(--btn-green-active));
+    transform: translateY(1px);
+    box-shadow: none;
+  }
+
+  .btn-vibrant-green:disabled {
+    opacity: 0.5;
+    pointer-events: none;
+    transform: none;
+    box-shadow: none;
+  }
+
+  /* --- Kalamity Kate Speech Bubble --- */
+  .speech-bubble {
+    background-color: hsl(var(--speech-bubble-bg));
+    color: hsl(var(--speech-bubble-text));
+    padding: 1.5rem 2rem;
+    border-radius: 2rem;
+    border: 3px solid hsl(var(--primary) / 0.25);
+    box-shadow: 0 10px 30px -10px hsl(var(--primary) / 0.2);
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Desktop Pointer (pointing right to the mascot) */
+  .speech-bubble-pointer::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -17px;
+    transform: translateY(-50%);
+    border-width: 15px 0 15px 15px;
+    border-style: solid;
+    border-color: transparent transparent transparent hsl(var(--primary) / 0.25);
+    z-index: -1;
+  }
+
+  .speech-bubble-pointer::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -13px;
+    transform: translateY(-50%);
+    border-width: 13px 0 13px 13px;
+    border-style: solid;
+    border-color: transparent transparent transparent hsl(var(--speech-bubble-bg));
+    z-index: 2;
+  }
+
+  /* Mobile Pointer (pointing down to the mascot) */
+  @media (max-width: 639px) {
+    .speech-bubble-pointer::before {
+      top: auto;
+      bottom: -17px;
+      right: 50%;
+      transform: translateX(50%);
+      border-width: 15px 15px 0 15px;
+      border-color: hsl(var(--primary) / 0.25) transparent transparent transparent;
+    }
+    
+    .speech-bubble-pointer::after {
+      top: auto;
+      bottom: -13px;
+      right: 50%;
+      transform: translateX(50%);
+      border-width: 13px 13px 0 13px;
+      border-color: hsl(var(--speech-bubble-bg)) transparent transparent transparent;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .btn-generate {
+      min-height: var(--btn-height-desktop);
+    }
+    .question-container {
+      padding: calc(var(--question-padding) * 1.5);
+    }
+  }
+}
+
+@layer utilities {
+  .transition-smooth {
+    transition: all 0.3s ease;
+  }
+  
+  .fade-in-up {
+    animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}
