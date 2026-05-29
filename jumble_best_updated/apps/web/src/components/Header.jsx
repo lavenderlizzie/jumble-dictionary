@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
@@ -33,7 +32,7 @@ function Header() {
               <span className="brand-text text-xl md:text-2xl font-black text-foreground hidden sm:block">
                 Jumble.best
               </span>
-              <span className="hidden sm:inline-block text-xs font-bold bg-primary text-primary-foreground px-2 py-0.5 rounded-full uppercase tracking-wide">
+              <span className="inline-block text-xs font-bold bg-primary text-primary-foreground px-2 py-0.5 rounded-full uppercase tracking-wide">
                 Beta
               </span>
               <LogoMascot />
