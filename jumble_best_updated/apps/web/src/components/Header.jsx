@@ -10,12 +10,13 @@ function Header() {
 
   const navLinks = [
     { path: '/', label: 'Home' },
+    { path: '/dictionary', label: 'Dictionary' },
+    { path: '/about-our-players', label: 'About Our Players' },
     { path: '/how-it-works', label: 'How It Works' },
     { path: '/about', label: 'About' },
-    { path: '/about-our-players', label: 'About Our Players' },
-    { path: '/dictionary', label: 'Dictionary' },
     { path: '/faq', label: 'FAQ' },
     { path: '/faq', label: 'Feedback', hash: '#feedback' },
+    { path: '/', label: 'Random Questions', hash: '#random-questions' },
   ];
 
   const isActive = (path) => location.pathname === path;
