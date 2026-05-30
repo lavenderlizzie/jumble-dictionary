@@ -40,6 +40,9 @@ function Footer() {
               <Link to="/about" className="block body-text text-base font-medium text-muted-foreground hover:text-accent transition-colors duration-200 w-fit">
                 About
               </Link>
+              <Link to="/dictionary" className="block body-text text-base font-medium text-muted-foreground hover:text-secondary transition-colors duration-200 w-fit">
+                Dictionary
+              </Link>
               <Link to="/terms" className="block body-text text-base font-medium text-muted-foreground hover:text-primary transition-colors duration-200 w-fit">
                 Terms
               </Link>
