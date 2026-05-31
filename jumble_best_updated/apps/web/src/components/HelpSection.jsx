@@ -11,7 +11,6 @@ function HelpItem({
 }) {
   const [isOpen, setIsOpen] = useState(defaultOpen);
 
-  // Map color names to actual semantic tailwind classes for the icon background
   const colorMap = {
     primary: "bg-primary text-primary-foreground shadow-primary/30",
     secondary: "bg-secondary text-secondary-foreground shadow-secondary/30"
@@ -41,7 +40,7 @@ function HelpItem({
           </motion.div>
         </div>
       </CollapsibleTrigger>
-      
+
       <AnimatePresence initial={false}>
         {isOpen && <CollapsibleContent forceMount asChild>
             <motion.div initial={{
@@ -120,11 +119,11 @@ function HelpSection() {
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                <span><strong>Enter Letters:</strong> Simply type your scrambled letters (up to 15 characters) into the main search box. Spaces and special characters are automatically ignored.</span>
+                <span><strong>Enter Letters:</strong> Simply type your scrambled letters into the main search box — as many as you need. Spaces and special characters are automatically ignored.</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
-                <span><strong>Instant Unscrambling:</strong> When you hit search, our engine compares your letters against a comprehensive dictionary database containing over 300,000 valid words.</span>
+                <span><strong>Instant Unscrambling:</strong> When you hit search, our engine compares your letters against a comprehensive dictionary of over 172,000 valid words — including the full ENABLE Scrabble tournament word list.</span>
               </li>
               <li className="flex items-start gap-3">
                 <div className="w-2 h-2 rounded-full bg-secondary mt-2 flex-shrink-0" />
