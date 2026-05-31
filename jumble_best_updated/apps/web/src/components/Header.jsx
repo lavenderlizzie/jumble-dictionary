@@ -14,12 +14,13 @@ function Header() {
     { path: '/about-our-players', label: 'About Our Players' },
     { path: '/how-it-works', label: 'How It Works' },
     { path: '/about', label: 'About' },
+    { path: '/', label: 'Quick Help', hash: '#help' },
     { path: '/faq', label: 'FAQ' },
     { path: '/faq', label: 'Feedback', hash: '#feedback' },
     { path: '/', label: 'Random Questions', hash: '#random-questions' },
   ];
 
-  const isActive = (path) => location.pathname === path;
+  const isActive = (path, hash) => location.pathname === path && !hash;
 
   return (
     <header className="sticky top-0 z-50 bg-background/90 backdrop-blur-md border-b border-border/60">
@@ -38,7 +39,7 @@ function Header() {
                 Beta
               </span>
             </div>
-            <div className="ml-4">
+            <div className="ml-3">
               <LogoMascot />
             </div>
           </Link>
@@ -50,7 +51,7 @@ function Header() {
                 key={`${link.path}-${link.label}`}
                 to={link.hash ? `${link.path}${link.hash}` : link.path}
                 className={`px-4 py-2 rounded-xl body-text text-sm font-bold transition-all duration-200 ${
-                  isActive(link.path) && !link.hash
+                  isActive(link.path, link.hash)
                     ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20 scale-105'
                     : 'text-foreground hover:bg-muted/80 hover:text-primary hover:scale-105'
                 }`}
@@ -66,11 +67,7 @@ function Header() {
             className="md:hidden p-2 rounded-xl hover:bg-muted/80 text-foreground transition-all duration-200 active:scale-95"
             aria-label="Toggle menu"
           >
-            {mobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
+            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
@@ -92,7 +89,7 @@ function Header() {
                   to={link.hash ? `${link.path}${link.hash}` : link.path}
                   onClick={() => setMobileMenuOpen(false)}
                   className={`block px-4 py-3 rounded-xl body-text text-base font-bold transition-all duration-200 ${
-                    isActive(link.path) && !link.hash
+                    isActive(link.path, link.hash)
                       ? 'bg-primary text-primary-foreground shadow-md shadow-primary/20'
                       : 'text-foreground hover:bg-muted/80 hover:text-primary'
                   }`}
